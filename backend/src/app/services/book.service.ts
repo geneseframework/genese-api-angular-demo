@@ -2,12 +2,7 @@ import { HttpException, Injectable } from '@nestjs/common';
 import { BOOKS } from '../mocks/book.mock';
 import { Book } from '../models/book.model';
 import { GenericDataService } from '../../generic/services/generic-data.service';
-import chalk from 'chalk';
-<<<<<<< Updated upstream
-=======
-import { BookPost } from '../../../../genese/genese-api/datatypes/book-post.datatype';
 import { BookPut } from '../../../../genese/genese-api/datatypes/book-put.datatype';
->>>>>>> Stashed changes
 
 @Injectable()
 export class BookService extends GenericDataService<Book> {
@@ -41,8 +36,6 @@ export class BookService extends GenericDataService<Book> {
             resolve(this.books);
         });
     }
-<<<<<<< Updated upstream
-=======
 
 
     /**
@@ -74,6 +67,5 @@ export class BookService extends GenericDataService<Book> {
         console.log('newId', newId);
         return newId;
     }
->>>>>>> Stashed changes
 }
 
