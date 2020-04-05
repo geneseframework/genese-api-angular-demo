@@ -54,7 +54,9 @@
                     "200": {
                         "content": {
                             "application/json": {
-
+                                "schema": {
+                                    "$ref": "#/components/schemas/BookPostResponse"
+                                }
                             }
                         },
                         "description": "Book created"
@@ -104,11 +106,11 @@
                     "required": true
                 },
                 "responses": {
-                    "201": {
-                        "description": "Book created"
-                    },
                     "200": {
                         "description": "Book updated"
+                    },
+                    "201": {
+                        "description": "Book created"
                     }
                 },
                 "operationId": "updateBook",
@@ -495,6 +497,16 @@
                         "type": "string"
                     },
                     "year": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "BookPostResponse": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "title": {
                         "description": "",
                         "type": "string"
                     }

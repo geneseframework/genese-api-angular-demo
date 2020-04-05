@@ -5,11 +5,8 @@ import { Book } from '../models/book.model';
 import { GetAllResponse } from '../../generic/services/generic-data.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Category } from '../enums/category';
-<<<<<<< Updated upstream
-=======
 import { BookPost } from '../../../../genese/genese-api/datatypes/book-post.datatype';
 import { BookPut } from '../../../../genese/genese-api/datatypes/book-put.datatype';
->>>>>>> Stashed changes
 
 @ApiTags('Books')
 @Controller('books')
@@ -49,8 +46,8 @@ export class BookController {
     @Post()
     @ApiOperation({ summary: 'Create a book' })
     @ApiQuery({name: 'category', enum: Category})
-    async addBook(@Body() createBookDTO: CreateBookDTO) {
-        const book = await this.booksService.addBook(createBookDTO);
+    async addBook(@Body() bookPost: BookPost) {
+        const book = await this.booksService.addBook(bookPost);
         return book;
     }
 

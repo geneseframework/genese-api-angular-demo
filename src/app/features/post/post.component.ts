@@ -4,6 +4,7 @@ import { BookPost } from '../../../../genese/genese-api/datatypes/book-post.data
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../../core/components/modal/modal.component';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
+import { BOOKS } from '../mocks/book.mock';
 
 
 @Component({
@@ -40,12 +41,12 @@ export class PostComponent implements OnInit {
 
 
     /**
-     * Open create part modal
+     * Open modal
      */
     openModal(): void {
         const dialogRef = this.dialog.open(ModalComponent, {
             width: '600px',
-            height: '50%',
+            height: '60%',
             hasBackdrop: false,
             panelClass: 'detail-part-modal'
         });
