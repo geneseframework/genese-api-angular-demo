@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { GeneseRequestService } from '../../../../../genese/genese-api/services/genese-request.service';
 import { Book } from '../../../../../genese/genese-api/datatypes/book.datatype';
+import { BookPut } from '../../../../../genese/genese-api/datatypes/book-put.datatype';
 
 @Component({
     selector: 'app-part-modal',
@@ -57,8 +58,7 @@ export class ModalComponent implements OnInit {
                     this.dialogRef.close(book);
                 }, err => console.error(err));
         } else {
-            this.geneseService.putBooksByBookId(this.book.id.toString(),
-                {
+            this.geneseService.putBooksByBookId({
                     title: this.book.title,
                     description: this.book.description
                 })

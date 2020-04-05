@@ -29,7 +29,7 @@ export class PutComponent implements OnInit {
 
 
     put(id: string): void {
-        this.geneseService.putBooksByBookId(id, this.bookPut).subscribe((response: ResponseStatus) => {
+        this.geneseService.putBooksByBookId(this.bookPut).subscribe((response: ResponseStatus) => {
             console.log('%c Genese put response ', 'font-weight: bold; color: fuchsia;', response);
             this.getData();
         });
