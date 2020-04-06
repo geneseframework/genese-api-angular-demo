@@ -1,5 +1,4 @@
 import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common';
-import chalk from 'chalk';
 import { BookService } from './services/book.service';
 import { GetAllResponse } from '../generic/services/generic-data.service';
 import { Book } from './models/book.model';

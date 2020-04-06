@@ -3,6 +3,8 @@ import { ResponseStatus } from '../../enums/response-status';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
 import { BookPut } from '../../../../genese/genese-api/datatypes/book-put.datatype';
+import { ModalComponent } from '../../core/components/modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -18,6 +20,7 @@ export class PutComponent implements OnInit {
 
 
     constructor(
+        private dialog: MatDialog,
         private geneseService: GeneseRequestService,
     ) {}
 
@@ -28,7 +31,31 @@ export class PutComponent implements OnInit {
     }
 
 
+
+    /**
+     * Open modal
+     */
+    openModal(id: string): void {
+        this.geneseService.getBooksByBookId(id).subscribe((book: Book) => {
+            this.dialog.open(ModalComponent, {
+                    width: '600px',
+                    height: '60%',
+                    hasBackdrop: false,
+                    panelClass: 'detail-part-modal',
+                    data: {book, mode: 'put'}
+                })
+                .afterClosed().subscribe(
+                () => {
+                    this.getData();
+                },
+                err => console.error(err)
+            );
+        });
+    }
+
+
     put(id: string): void {
+        console.log('%c Genese put id', 'font-weight: bold; color: fuchsia;', id);
         this.geneseService.putBooksByBookId(this.bookPut).subscribe((response: ResponseStatus) => {
             console.log('%c Genese put response ', 'font-weight: bold; color: fuchsia;', response);
             this.getData();

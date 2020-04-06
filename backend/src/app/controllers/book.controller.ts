@@ -1,6 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { BookService } from '../services/book.service';
-import { CreateBookDTO } from '../dto/create-book.dto';
 import { Book } from '../models/book.model';
 import { GetAllResponse } from '../../generic/services/generic-data.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';

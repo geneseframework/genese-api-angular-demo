@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { GeneseRequestService } from '../../../../../genese/genese-api/services/genese-request.service';
 import { Book } from '../../../../../genese/genese-api/datatypes/book.datatype';
 import { BookPut } from '../../../../../genese/genese-api/datatypes/book-put.datatype';
+import { BookPostResponse } from '../../../../../genese/genese-api/datatypes/book-post-response.datatype';
 
 @Component({
     selector: 'app-part-modal',
@@ -12,13 +13,15 @@ import { BookPut } from '../../../../../genese/genese-api/datatypes/book-put.dat
 export class ModalComponent implements OnInit {
 
 
-    public mode = 'creation';
     public book: Book = {};
+    public mode = 'post';
 
 
     constructor(@Inject(MAT_DIALOG_DATA) data: { book: Book, mode: string },
                 private dialogRef: MatDialogRef<ModalComponent>,
                 private geneseService: GeneseRequestService) {
+        this.book = data.book;
+        this.mode = data.mode;
     }
 
 
@@ -30,43 +33,34 @@ export class ModalComponent implements OnInit {
         const overlay = document.createElement('div');
         overlay.id = 'overlay';
         document.body.prepend(overlay);
-        this.getBook();
     }
 
-
-    /**
-     * Get book
-     */
-    getBook(id = '') {
-        this.geneseService.getBooksByBookId(id).subscribe((book) => {
-            // TODO : Implement for updates
-            // console.log('%c book', 'font-weight: bold; color: blue;', book);
-        });
-    }
 
 
     /**
      * Modal validation
      */
     validModal() {
-        if (this.mode === 'creation') {
+        if (this.mode === 'post') {
             this.geneseService.postBooks(this.book)
-                .subscribe((book: Book) => {
-                    console.log('%c Genese post() book response : ', 'font-weight: bold; color: green;', book);
+                .subscribe((bookPostResponse: BookPostResponse) => {
+                    console.log('%c Genese post() bookPostResponse response : ', 'font-weight: bold; color: green;', bookPostResponse);
                     this.removeOverlay();
-                    this.dialogRef.close(book);
+                    this.dialogRef.close(bookPostResponse);
                 }, err => console.error(err));
         } else {
             this.geneseService.putBooksByBookId({
                     title: this.book.title,
                     description: this.book.description
-                })
+                }, this.book.id.toString())
                 .subscribe(() => {
+                    console.log('%c Genese put() book response : ', 'font-weight: bold; color: lime;', 'ok');
                     this.removeOverlay();
                     this.dialogRef.close(true);
                 }, err => console.error(err));
         }
     }
+
 
 
     /**
@@ -76,6 +70,8 @@ export class ModalComponent implements OnInit {
         this.removeOverlay();
         this.dialogRef.close();
     }
+
+
 
     /**
      * Remove overlay
