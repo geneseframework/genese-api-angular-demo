@@ -14,7 +14,6 @@ import { BOOKS } from '../mocks/book.mock';
 })
 export class PostComponent implements OnInit {
 
-    public bookPost: BookPost = {title: 'Les inégalités', description: 'Description des inégalités', year: '1998'};
     public data: any[] = [];
 
     constructor(
@@ -33,7 +32,6 @@ export class PostComponent implements OnInit {
     getData(): void {
         this.geneseService.getBooks()
             .subscribe((response: Book[]) => {
-                console.log('%c getAll response ', 'font-weight: bold; color: black;', response);
                 this.data = response;
             });
     }
@@ -52,13 +50,7 @@ export class PostComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(
-            result => {
-                console.log('%c Genese post() afterClosed result ', 'font-weight: bold; color: fuchsia;', result);
-                if (result) {
-                    this.geneseService.postBooks(this.bookPost).subscribe((response: any) => {
-                        console.log('%c Genese post() response ', 'font-weight: bold; color: fuchsia;', response);
-                    });
-                }
+            () => {
                 this.getData();
             },
             err => console.error(err)

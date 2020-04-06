@@ -2,7 +2,7 @@ export class Book {
 
     public id: number;
     public author?: string;
-    public bookTitle?: string;
+    public title?: string;
     public booleans?: boolean[];
     public categories?: string[];
     public codeArrayOfArraysOfStrings?: string[][];
