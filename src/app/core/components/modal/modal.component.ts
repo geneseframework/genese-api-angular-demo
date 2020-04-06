@@ -35,14 +35,13 @@ export class ModalComponent implements OnInit {
 
 
     /**
-     * Load ata and designation list
+     * Get book
      */
     getBook(id = '') {
-        // if (this.mode === 'duplicate') {
         this.geneseService.getBooksByBookId(id).subscribe((book) => {
-            console.log('%c book', 'font-weight: bold; color: blue;', book);
+            // TODO : Implement for updates
+            // console.log('%c book', 'font-weight: bold; color: blue;', book);
         });
-        // }
     }
 
 
@@ -51,9 +50,9 @@ export class ModalComponent implements OnInit {
      */
     validModal() {
         if (this.mode === 'creation') {
-            console.log('%c validModal this.book', 'font-weight: bold; color: blue;', this.book);
             this.geneseService.postBooks(this.book)
                 .subscribe((book: Book) => {
+                    console.log('%c Genese post() book response : ', 'font-weight: bold; color: green;', book);
                     this.removeOverlay();
                     this.dialogRef.close(book);
                 }, err => console.error(err));

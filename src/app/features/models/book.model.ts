@@ -8,7 +8,7 @@
 //     @GnRename('isAvailable')
 //     public available ?= false;
 //
-//     @GnRename('bookTitle')
+//     @GnRename('title')
 //     public title ?= '';
 //
 //     public id ?= '';
@@ -78,7 +78,7 @@
 //     name ?= 'editor.name';
 //     // city ?= 'editor.place.city';
 //     country ?= 'editor.place.country';
-//     @GnRename('bookTitle')
+//     @GnRename('title')
 //     title ?= 'title';
 //     // myEditor ?= 'editor';
 //     editions ?= 'editions';

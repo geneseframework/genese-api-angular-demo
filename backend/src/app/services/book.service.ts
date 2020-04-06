@@ -3,6 +3,8 @@ import { BOOKS } from '../mocks/book.mock';
 import { Book } from '../models/book.model';
 import { GenericDataService } from '../../generic/services/generic-data.service';
 import { BookPut } from '../../../../genese/genese-api/datatypes/book-put.datatype';
+import { BookPost } from '../../../../genese/genese-api/datatypes/book-post.datatype';
+import { BookPostResponse } from '../../../../genese/genese-api/datatypes/book-post-response.datatype';
 
 @Injectable()
 export class BookService extends GenericDataService<Book> {
@@ -13,10 +15,22 @@ export class BookService extends GenericDataService<Book> {
      * Create a new book
      * @param book
      */
-    addBook(book): Promise<any> {
+    addBook(book: BookPost): Promise<BookPostResponse> {
+        if (!book) {
+            throw Error('404');
+        }
         return new Promise(resolve => {
-            this.books.push(book);
-            resolve(this.books);
+            const newBook: Book = {
+                id: this.newId,
+                description: book.description,
+                title: book.title,
+                year: book.year
+            };
+            this.books.push(newBook);
+            const bookPostResponse: BookPostResponse = {
+                title: book.title
+            };
+            resolve(bookPostResponse);
         });
     }
 
@@ -62,10 +76,8 @@ export class BookService extends GenericDataService<Book> {
 
 
 
-    getNewId(): number {
-        const newId = Math.max(...this.books.map(e => e.id)) + 1;
-        console.log('newId', newId);
-        return newId;
+    get newId(): number {
+        return Math.max(...this.books.map(e => e.id)) + 1;
     }
 }
 
