@@ -4,30 +4,11 @@
     <p>put() method needs that your app respects the Genese standards :</p>
     <p>* The endpoint must wait a PUT method.</p>
     <p>* The api path must respect the REST api standards for a PUT method (example : http://my-path/book/id)</p>
-    <p>In this example, the update() method removes a book with the help of the NestJS backend.</p>
+    <p>In this example, the put() method removes a book with the help of the NestJS backend.</p>
     <p>Open your navigator console. In the tab "Network", you'll find the data received from PUT request.</p>
 
-    <div class="form-create">
-        <form (ngSubmit)="put()" #formCreate="ngForm">
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="title" [(ngModel)]="bookPut.title" name="title" required #title="ngModel">
-                <div [hidden]="title.valid || title.pristine"
-                     class="alert alert-danger">
-                    Title is required
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" placeholder="Description" [(ngModel)]="bookPut.description" name="description">
-            </div>
-
-            <button type="submit" class="btn btn-success" [disabled]="!formCreate.form.valid">Update book</button>
-        </form>
-    </div>
 
     <div class="dataList">
-        <app-books-list [data]="data" (update)="put($event)"></app-books-list>
+        <app-books-list [data]="data" (update)="openModal($event)"></app-books-list>
     </div>
 </div>
