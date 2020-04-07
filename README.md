@@ -1,6 +1,6 @@
-# genese-angular-demo
+# genese-api-angular-demo
 
- genese-angular-demo is a demonstration of the [genese-angular](https://www.npmjs.com/package/genese-angular) module, with the help of a backend in NestJs.
+ genese-api-angular-demo is a demonstration of the [genese-angular](https://www.npmjs.com/package/genese-angular) module, with the help of a backend in NestJs.
  
  This demonstration will help you to understand the concepts of the genese-angular module, which is using the core of the Genese framework : the generic mapper [genese-mapper](https://www.npmjs.com/package/genese-mapper).
  
