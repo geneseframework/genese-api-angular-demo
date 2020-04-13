@@ -1,7 +1,7 @@
 <div class="method-container">
     <p class="title">post(path: string, body: any, options?: RequestOptions): Observable< T | any ></p>
     <p>The method of the generated data-service calls directly genese-angular post() method which is sending an object to backend. If the backend returns an object (which is usually a bad practice), it will be mapped with the type T (in this example, T = BookPostResponse)</p>
-    <p>Open your navigator console. In the tab "Network", you'll find the data received from the getAll() request. In the tab "Console", you'll can compare these original data with the formatted objects sent as Observable by genese-angular. As you can see, genese-angular formatted the returned object with "Book" type.</p>
+    <p>Open your navigator console, click on "Add book" button and send the form in the modal. In the tab "Network", you'll find the data received from the post() request. In the tab "Console", you'll can compare these original data with the formatted object sent as Observable by genese-angular. As you can see, genese-angular formatted the returned object with "BookPostResponse" type.</p>
 
     <mat-button-toggle (click)="openModal()">Add book</mat-button-toggle>
     <div class="dataList">

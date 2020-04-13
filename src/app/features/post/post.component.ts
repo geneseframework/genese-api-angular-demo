@@ -44,7 +44,8 @@ export class PostComponent implements OnInit {
             width: '600px',
             height: '60%',
             hasBackdrop: false,
-            panelClass: 'detail-part-modal'
+            panelClass: 'detail-part-modal',
+            data: {mode: 'post'}
         });
 
         dialogRef.afterClosed().subscribe(
