@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Method } from './models/method.model';
+import { Method } from '../enums/method.model';
 
 
 @Component({

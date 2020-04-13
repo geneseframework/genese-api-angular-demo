@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseStatus } from '../enums/response-status';
+import { ResponseStatus } from '../../enums/response-status';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
 import { BookPut } from '../../../../genese/genese-api/datatypes/book-put.datatype';

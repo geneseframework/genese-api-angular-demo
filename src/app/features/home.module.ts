@@ -4,7 +4,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { CoreModule } from '../core/core.module';
 import { GetComponent } from './get/get.component';
 import { GetAllComponent } from './get-all/get-all.component';
-import { BooksListComponent } from './books-list/books-list.component';
+import { BooksListComponent } from '../core/books-list/books-list.component';
 import { PostComponent } from './post/post.component';
 import { DeleteComponent } from './delete/delete.component';
 import { PutComponent } from './put/put.component';

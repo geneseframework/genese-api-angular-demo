@@ -12,7 +12,7 @@ import {
 import { Genese, GeneseService, GetAllResponse } from 'genese-angular';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { tap } from 'rxjs/operators';
-import { homeEnv } from '../homeEnv';
+import { homeEnv } from '../../features/homeEnv';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 
 
