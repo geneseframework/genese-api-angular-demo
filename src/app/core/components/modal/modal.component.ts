@@ -53,8 +53,8 @@ export class ModalComponent implements OnInit {
                     title: this.book.title,
                     description: this.book.description
                 }, this.book.id.toString())
-                .subscribe(() => {
-                    console.log('%c Genese put() book response : ', 'font-weight: bold; color: lime;', 'ok');
+                .subscribe((updatedBook: Book) => {
+                    console.log('%c Genese put() book response : ', 'font-weight: bold; color: green;', updatedBook);
                     this.removeOverlay();
                     this.dialogRef.close(true);
                 }, err => console.error(err));

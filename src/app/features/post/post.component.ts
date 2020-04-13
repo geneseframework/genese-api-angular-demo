@@ -20,13 +20,17 @@ export class PostComponent implements OnInit {
     ) {}
 
 
-
+    /**
+     * Initializes the component
+     */
     ngOnInit(): void {
         this.getData();
     }
 
 
-
+    /**
+     * Gets all the books
+     */
     getData(): void {
         this.geneseService.getBooks()
             .subscribe((response: Book[]) => {
@@ -35,9 +39,8 @@ export class PostComponent implements OnInit {
     }
 
 
-
     /**
-     * Open modal
+     * Opens creation modal
      */
     openModal(): void {
         const dialogRef = this.dialog.open(ModalComponent, {

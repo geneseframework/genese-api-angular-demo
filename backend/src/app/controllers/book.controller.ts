@@ -30,7 +30,7 @@ export class BookController {
 
 
     @Get()
-    @ApiOperation({ summary: 'Get all app' })
+    @ApiOperation({ summary: 'Get all books' })
     async getBooks(@Query() params): Promise<GetAllResponse<Book> | Book[]> {
         let books = [];
         if (params && params.pSize) {
@@ -46,7 +46,7 @@ export class BookController {
     @Post()
     @ApiOperation({ summary: 'Create a book' })
     @ApiQuery({name: 'category', enum: Category})
-    async addBook(@Body() bookPost: BookPost) {
+    async addBook(@Body() bookPost: BookPost): Promise<BookPostResponse> {
         const bookPostResponse: BookPostResponse = await this.booksService.addBook(bookPost);
         return bookPostResponse;
     }
@@ -55,7 +55,7 @@ export class BookController {
 
     @Put(':bookId')
     @ApiOperation({ summary: 'Update a book' })
-    async updateBook(@Param('bookId') bookId, @Body() bookPut: BookPut) {
+    async updateBook(@Param('bookId') bookId, @Body() bookPut: BookPut): Promise<Book> {
         const book = await this.booksService.updateBook(bookId, bookPut);
         return book;
     }

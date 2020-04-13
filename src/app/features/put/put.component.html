@@ -1,11 +1,7 @@
 <div class="method-container">
-    <p class="title">put(id: string, updatedObject: T, options?: RequestOptions): Observable< T | any ></p>
-    <p>put() method is used to update a T object in database with a PUT http request and returns the updated object formatted with T type.</p>
-    <p>put() method needs that your app respects the Genese standards :</p>
-    <p>* The endpoint must wait a PUT method.</p>
-    <p>* The api path must respect the REST api standards for a PUT method (example : http://my-path/book/id)</p>
-    <p>In this example, the put() method removes a book with the help of the NestJS backend.</p>
-    <p>Open your navigator console. In the tab "Network", you'll find the data received from PUT request.</p>
+    <p class="title">put(path: string, body: any, options?: RequestOptions): Observable< T | any ></p>
+    <p>The method of the generated data-service calls directly genese-angular put() method which is sending an object to backend. If the backend returns an object (which is usually a bad practice), it will be mapped with the type T.</p>
+    <p>Open your navigator console, click on "Add book" button and send the form in the modal. In the tab "Network", you'll find the data received from the put() request.</p>
 
 
     <div class="dataList">
