@@ -18,16 +18,21 @@ export class GetAllComponent implements OnInit {
     ) {}
 
 
-
+    /**
+     * Initializes component and calls the getOne method
+     */
     ngOnInit(): void {
         this.getData();
     }
 
 
+    /**
+     * Gets all books for a given id
+     */
     getData(): void {
         this.geneseService.getBooks()
             .subscribe((response: Book[]) => {
-                console.log('%c getAll response ', 'font-weight: bold; color: black;', response);
+                console.log('%c getAll() response ', 'font-weight: bold; color: black;', response);
                 this.data = response;
             });
     }

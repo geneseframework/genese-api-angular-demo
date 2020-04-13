@@ -2,7 +2,7 @@ import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { CoreModule } from '../core/core.module';
-import { GetOneComponent } from './get-one/get-one.component';
+import { GetComponent } from './get/get.component';
 import { GetAllComponent } from './get-all/get-all.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { PostComponent } from './post/post.component';
@@ -21,7 +21,7 @@ import { ModalComponent } from '../core/components/modal/modal.component';
         BooksListComponent,
         WelcomeComponent,
         GetAllComponent,
-        GetOneComponent,
+        GetComponent,
         HomeComponent,
         PutComponent,
     ],
