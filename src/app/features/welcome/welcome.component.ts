@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
-import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -8,24 +6,9 @@ import { GeneseRequestService } from '../../../../genese/genese-api/services/gen
     templateUrl: './welcome.component.html',
     styleUrls: ['./welcome.component.scss']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent {
 
 
-    constructor(
-        private geneseService: GeneseRequestService,
-    ) {}
+    constructor() {}
 
-    ngOnInit(): void {
-        this.getOne('1');
-    }
-
-    /**
-     * Get one book for a given id
-     * @param id
-     */
-    getOne(id: string): void {
-        this.geneseService.getBooksByBookId(id).subscribe((book: Book) => {
-            console.log('%c Get one book ', 'font-weight: bold; color: green;', book);
-        });
-    }
 }

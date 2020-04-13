@@ -10,9 +10,10 @@ import {
     ViewChild
 } from '@angular/core';
 import { Genese, GeneseService, GetAllResponse } from 'genese-angular';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { tap } from 'rxjs/operators';
-import { homeEnv } from '../homeEnv';
+import { homeEnv } from '../../features/homeEnv';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 
 

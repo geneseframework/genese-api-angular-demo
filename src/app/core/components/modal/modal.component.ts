@@ -20,8 +20,8 @@ export class ModalComponent implements OnInit {
     constructor(@Inject(MAT_DIALOG_DATA) data: { book: Book, mode: string },
                 private dialogRef: MatDialogRef<ModalComponent>,
                 private geneseService: GeneseRequestService) {
-        this.book = data.book;
-        this.mode = data.mode;
+        this.book = data?.book ?? {};
+        this.mode = data?.mode;
     }
 
 
@@ -53,8 +53,8 @@ export class ModalComponent implements OnInit {
                     title: this.book.title,
                     description: this.book.description
                 }, this.book.id.toString())
-                .subscribe(() => {
-                    console.log('%c Genese put() book response : ', 'font-weight: bold; color: lime;', 'ok');
+                .subscribe((updatedBook: Book) => {
+                    console.log('%c Genese put() book response : ', 'font-weight: bold; color: green;', updatedBook);
                     this.removeOverlay();
                     this.dialogRef.close(true);
                 }, err => console.error(err));

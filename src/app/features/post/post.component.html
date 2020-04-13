@@ -1,12 +1,7 @@
 <div class="method-container">
-    <p class="title">post(newObject: T, options?: RequestOptions): Observable< T | any ></p>
-    <p>post() method is used to add a T object in database with a POST http request</p>
-    <p>If the endpoint respects the Genese standards, it should return the new object. In this case, the create() method will return this object formatted with the T type. In the other case, the create() method will simply return the request response.</p>
-    <p>create() method needs that your app respects the Genese standards :</p>
-    <p>* The endpoint must wait a POST method.</p>
-    <p>* The api path must respect the REST api standards for a POST method (example : http://my-path/book/id)</p>
-    <p>In this example, the create() method adds a new book with the NestJS backend.</p>
-    <p>Open your navigator console. In the tab "Network", you'll find the data received from POST request. In the tab "Console", you'll can compare these original data with the formatted objects sent as Observable by Genese. As you can see, Genese formatted the returned object with "Book" type.</p>
+    <p class="title">post(path: string, body: any, options?: RequestOptions): Observable< T | any ></p>
+    <p>The method of the generated data-service calls directly genese-angular post() method which is sending an object to backend. If the backend returns an object (which is usually a bad practice), it will be mapped with the type T (in this example, T = BookPostResponse)</p>
+    <p>Open your navigator console, click on "Add book" button and send the form in the modal. In the tab "Network", you'll find the data received from the post() request. In the tab "Console", you'll can compare these original data with the formatted object sent as Observable by genese-angular. As you can see, genese-angular formatted the returned object with "BookPostResponse" type.</p>
 
     <mat-button-toggle (click)="openModal()">Add book</mat-button-toggle>
     <div class="dataList">

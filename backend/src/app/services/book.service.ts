@@ -57,14 +57,14 @@ export class BookService extends GenericDataService<Book> {
      * @param bookID
      * @param bookPut
      */
-    updateBook(bookID: string, bookPut: BookPut): Promise<any> {
+    updateBook(bookID: string, bookPut: BookPut): Promise<Book> {
         if (!bookID || !bookPut) {
             throw new HttpException('BookId or body does not exist!', 404);
         }
         const id = Number(bookID);
         return new Promise(resolve => {
             const index = this.books.findIndex(book => book.id === id);
-            if (!index) {
+            if (index < 0) {
                 throw new HttpException('Book does not exist!', 404);
             }
             const updatedBook = bookPut as Book;
