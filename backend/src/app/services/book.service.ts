@@ -39,7 +39,7 @@ export class BookService extends GenericDataService<Book> {
      * Delete a book
      * @param bookID
      */
-    deleteBook(bookID): Promise<any> {
+    deleteBook(bookID: string): Promise<any> {
         const id = Number(bookID);
         return new Promise(resolve => {
             const index = this.books.findIndex(book => book.id === id);
