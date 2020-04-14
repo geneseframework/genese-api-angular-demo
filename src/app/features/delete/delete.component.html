@@ -1,12 +1,8 @@
 <div class="method-container">
-    <p class="title">delete(id: string): Observable< ResponseStatus ></p>
-    <p>delete() method is used to removed a T object in database with a DELETE http request and returns a response with ResponseStatus type.</p>
-    <p>delete() method needs that your app respects the Genese standards :</p>
-    <p>* The endpoint must wait a DELETE method.</p>
-    <p>* The api path must respect the REST api standards for a create() method, just like this :</p>
-    <p>http://my-path/book/id</p>
-    <p>In this example, the delete() method removes a book with the help of the NestJS backend.</p>
-    <p>Open your navigator console. In the tab "Network", you'll find the data received from DELETE request.</p>
+    <p class="title">delete(path: string, options: RequestOptions = "{{ '{}' }}): Observable< T | ResponseStatus ></p>
+    <p>The method of the generated data-service calls directly genese-angular delete() method which is removing an object in the backend. If the backend returns an object (which is usually a bad practice), it will be mapped with the type T (in this example, T = BookPostResponse)</p>
+    <p>Open your navigator console, click on one "trash" button in the array of data. In the tab "Network", you'll find the data received from the delete() request. In the tab "Console", you'll can compare these original data with the formatted object sent as Observable by genese-angular. As you can see, genese-angular formatted the returned object with "BookDeleteResponse" type.</p>
+
     <div class="dataList">
         <app-books-list [data]="data" (delete)="delete($event)"></app-books-list>
     </div>

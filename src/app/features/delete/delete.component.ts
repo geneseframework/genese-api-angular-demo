@@ -19,28 +19,34 @@ export class DeleteComponent implements OnInit {
     ) {}
 
 
-
+    /**
+     * Initializes the component
+     */
     ngOnInit(): void {
         this.getData();
     }
 
 
+    /**
+     * Gets all the books
+     */
+    getData(): void {
+        this.geneseService.getBooks()
+            .subscribe((response: Book[]) => {
+                this.data = response;
+            });
+    }
 
+
+    /**
+     * Deletes a book with a given id
+     * @param id
+     */
     delete(id: string): void {
         console.log('%c delete id ', 'font-weight: bold; color: red;', id);
         this.geneseService.deleteBooksByBookId(id).subscribe((response: ResponseStatus) => {
             console.log('%c Genese delete response ', 'font-weight: bold; color: red;', response);
             this.getData();
         });
-    }
-
-
-
-    getData(): void {
-        this.geneseService.getBooks()
-            .subscribe((response: Book[]) => {
-                console.log('%c getAll response ', 'font-weight: bold; color: black;', response);
-                this.data = response;
-            });
     }
 }
