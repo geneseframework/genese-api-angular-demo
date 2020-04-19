@@ -40,7 +40,7 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
 
-    constructor(private geneseService: GeneseService) {
+    constructor(private readonly geneseService: GeneseService) {
         this.booksGenese = geneseService.getGeneseInstance(Book);
     }
 

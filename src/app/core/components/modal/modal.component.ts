@@ -27,7 +27,7 @@ export class ModalComponent implements OnInit {
 
 
     /**
-     * Component initialization
+     * Initializes component
      */
     ngOnInit() {
         const overlay = document.createElement('div');

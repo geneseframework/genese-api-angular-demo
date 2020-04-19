@@ -13,9 +13,7 @@ export class GetAllComponent implements OnInit {
     public data: any[] = [];
 
 
-    constructor(
-        private readonly geneseService: GeneseRequestService,
-    ) {}
+    constructor(private readonly geneseService: GeneseRequestService) {}
 
 
     /**
