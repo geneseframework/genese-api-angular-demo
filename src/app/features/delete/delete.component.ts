@@ -15,7 +15,7 @@ export class DeleteComponent implements OnInit {
 
 
     constructor(
-        private geneseService: GeneseRequestService,
+        private readonly geneseService: GeneseRequestService,
     ) {}
 
 
@@ -43,9 +43,9 @@ export class DeleteComponent implements OnInit {
      * @param id
      */
     delete(id: string): void {
-        console.log('%c delete id ', 'font-weight: bold; color: red;', id);
         this.geneseService.deleteBooksByBookId(id).subscribe((response: ResponseStatus) => {
-            console.log('%c Genese delete response ', 'font-weight: bold; color: red;', response);
+            console.log('%c Deleted book with id = ', 'font-weight: bold; color: brown;', id);
+            console.log('%c Genese delete response ', 'font-weight: bold; color: brown;', response);
             this.getData();
         });
     }
