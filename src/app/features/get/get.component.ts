@@ -11,9 +11,7 @@ import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 export class GetComponent implements OnInit {
 
 
-    constructor(
-        private readonly geneseService: GeneseRequestService,
-    ) {}
+    constructor(private readonly geneseService: GeneseRequestService) {}
 
 
     /**
