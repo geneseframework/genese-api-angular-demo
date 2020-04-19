@@ -15,8 +15,8 @@ export class PostComponent implements OnInit {
     public data: any[] = [];
 
     constructor(
-        private dialog: MatDialog,
-        private geneseService: GeneseRequestService,
+        private readonly dialog: MatDialog,
+        private readonly geneseService: GeneseRequestService,
     ) {}
 
 

@@ -4,6 +4,6 @@
     <p>Open your navigator console, click on one "trash" button in the array of data. In the tab "Network", you'll find the data received from the delete() request. In the tab "Console", you'll can compare these original data with the formatted object sent as Observable by genese-angular. As you can see, genese-angular formatted the returned object with "BookDeleteResponse" type.</p>
 
     <div class="dataList">
-        <app-books-list [data]="data" (delete)="delete($event)"></app-books-list>
+        <app-books-list [data]="data" (delete)="delete($event)" [actionButtons]="['delete']"></app-books-list>
     </div>
 </div>

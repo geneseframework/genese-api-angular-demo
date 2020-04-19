@@ -26,6 +26,7 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
 
 
     @Input() data: any[] = [];
+    @Input() actionButtons: string[] = [];
     @Output() delete: EventEmitter<string> = new EventEmitter<any>();
     @Output() update: EventEmitter<string> = new EventEmitter<any>();
 
@@ -48,44 +49,58 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
     /**
      * Component initialization
      */
+    // TODO : add paginator
     ngOnInit(): void {
-        this.paginator.pageIndex = this.pageIndex;
-        this.paginator.pageSize = this.pageSize;
+        // this.paginator.pageIndex = this.pageIndex;
+        // this.paginator.pageSize = this.pageSize;
         this.getAll();
     }
 
 
+    /**
+     * Updates data when parent component changed
+     * @param changes
+     */
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.data) {
             this.getAll();
         }
     }
 
+
     /**
-     * Component after initialization
+     * Updates pagination after view init
      */
+    // TODO : add paginator
     ngAfterViewInit(): void {
-        this.paginator.page
-            .pipe(
-                tap(() => this.getAllWithPagination())
-            )
-            .subscribe();
+        // this.paginator.page
+        //     .pipe(
+        //         tap(() => this.getAllWithPagination())
+        //     )
+        //     .subscribe();
     }
 
 
+    /**
+     * Emits the delete event
+     * @param id
+     */
     deleteElement(id: string): void {
         this.delete.emit(id);
     }
 
 
-    openElement(id: string): void {
+    /**
+     * Emits the update event
+     * @param id
+     */
+    updateElement(id: string): void {
         this.update.emit(id);
     }
 
 
-
     /**
-     * Get all the app with pagination
+     * Gets all books
      */
     getAll(): void {
         this.displayedColumns = ['id', 'author', 'title', 'description', 'actions'];
@@ -94,8 +109,9 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
         }
     }
 
+
     /**
-     * Get all the app with pagination
+     * Gets all books with pagination
      */
     getAllWithPagination(): void {
         this.displayedColumns = ['id', 'author', 'title', 'description', 'actions'];
@@ -113,16 +129,20 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
     }
 
 
-
     /**
-     * Display the app list in a MatTable with pagination
+     * Displays data list in a MatTable with pagination
      * @param data
      */
+    // TODO : add paginator
     displayMatTableDataSource(data: GetAllResponse<Book>) {
         this.dataSource = data && Array.isArray(data.results) ? new MatTableDataSource(data.results) : new MatTableDataSource([]);
-        this.paginator.length = data && data.totalResults ? data.totalResults : 0;
-        this.emptyList = this.paginator.length === 0;
+        // this.paginator.length = data && data.totalResults ? data.totalResults : 0;
+        // this.emptyList = this.paginator.length === 0;
     }
 
+
+    buttonDisplayed(action = ''): boolean {
+        return this.actionButtons?.includes(action);
+    }
 
 }

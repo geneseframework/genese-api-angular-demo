@@ -1,7 +1,7 @@
 export type Method =
     | 'delete'
     | 'get-all'
-    | 'get-one'
+    | 'get'
     | 'post'
     | 'put'
     | 'translate';

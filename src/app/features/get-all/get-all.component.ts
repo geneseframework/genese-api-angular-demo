@@ -14,7 +14,7 @@ export class GetAllComponent implements OnInit {
 
 
     constructor(
-        private geneseService: GeneseRequestService,
+        private readonly geneseService: GeneseRequestService,
     ) {}
 
 

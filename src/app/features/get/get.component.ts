@@ -12,7 +12,7 @@ export class GetComponent implements OnInit {
 
 
     constructor(
-        private geneseService: GeneseRequestService,
+        private readonly geneseService: GeneseRequestService,
     ) {}
 
 

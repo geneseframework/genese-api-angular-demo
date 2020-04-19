@@ -18,8 +18,8 @@ export class ModalComponent implements OnInit {
 
 
     constructor(@Inject(MAT_DIALOG_DATA) data: { book: Book, mode: string },
-                private dialogRef: MatDialogRef<ModalComponent>,
-                private geneseService: GeneseRequestService) {
+                private readonly dialogRef: MatDialogRef<ModalComponent>,
+                private readonly geneseService: GeneseRequestService) {
         this.book = data?.book ?? {};
         this.mode = data?.mode;
     }
