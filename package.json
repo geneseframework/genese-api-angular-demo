@@ -39,7 +39,7 @@
     "ionicons": "^4.6.3",
     "moment": "^2.24.0",
     "ngx-mask": "^8.1.7",
-    "nth-check": "^1.0.2",
+    "nth-check": "^2.0.1",
     "parse-node-version": "^1.0.1",
     "roboto-fontface": "^0.10.0",
     "rxjs": "^6.5.5",
